@@ -34,6 +34,7 @@ int _printf(const char *format, ...)
 				{
 					numb = va_arg(string_args, int);
 					char_printed += print_integer(numb);
+					break;
 				}
 				case 's':
 				{

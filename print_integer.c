@@ -17,7 +17,7 @@ int print_integer(int num)
 
 	if (num < 0)
 	{
-		_write('-'); /* Write a negative sign to the stdout */
+		_putchar('-'); /* Write a negative sign to the stdout */
 		count++;
 		num = -num; /* Convert the number to positive */
 	}
@@ -37,7 +37,7 @@ int print_integer(int num)
 	while (divisor > 0)
 	{
 		digit = num / divisor; /* This will extrat the leftmost digit */
-		_write(digit + '0'); /* Write the digit as a character */
+		_putchar(digit + '0'); /* Write the digit as a character */
 		count++;
 		num %= divisor; /* To update the number by removing the leftmost digit */
 		divisor /= 10; /* This will update the divisor for the next digit */
