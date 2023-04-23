@@ -1,18 +1,5 @@
 #include "main.h"
-#include <unistd.h>
 #include <stdarg.h>
-
-/**
- * _putchar - write c to the stdout
- * @c: character to be printed
- *
- * Return: return 1 on success.
- */
-int _putchar(int c)
-{
-	return (write(1, &c, 1));
-}
-
 
 /**
  * _printf - output according to a the format specified
@@ -24,7 +11,7 @@ int _printf(const char *format, ...)
 {
 	int char_printed = 0;
 	char *s;
-	int c;
+	int numb;
 	va_list string_args;
 
 	va_start(string_args, format);
@@ -38,10 +25,15 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 				{
-					c = va_arg(string_args, int);
-					_putchar(c);
+					_putchar(va_arg(string_args, int));
 					char_printed++;
 					break;
+				}
+				case 'd':
+				case 'i':
+				{
+					numb = va_arg(string_args, int);
+					char_printed += print_integer(numb);
 				}
 				case 's':
 				{
