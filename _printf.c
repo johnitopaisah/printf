@@ -46,10 +46,6 @@ int _printf(const char *format, ...)
 				case 's':
 				{
 					s = va_arg(string_args, char *);
-					if (s == NULL)
-					{
-						s = "(nil)";
-					}
 					while (*s)
 					{
 						_putchar(*s);
