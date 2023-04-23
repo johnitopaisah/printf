@@ -4,6 +4,6 @@
 int _printf(const char *format, ...);
 int _strlen(char *str);
 int print_integer(int num);
-int _write(char c);
+int _putchar(int c);
 
 #endif /* MAIN_H */
