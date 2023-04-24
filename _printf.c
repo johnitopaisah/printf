@@ -28,8 +28,7 @@ int _printf(const char *format, ...)
 					count++;
 					break;
 				}
-				case 'd':
-				case 'i':
+				case 'd' || 'i':
 				{
 					count += print_integer(va_arg(string_args, int));
 					break;
