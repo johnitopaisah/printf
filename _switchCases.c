@@ -1,40 +1,49 @@
 #include "main.h"
+#include <stdarg.h>
+
 
 /**
- * switchCases - Function that checks for all the cases
- * @s: parameter
+ * handle_format_specifier - Function that checks for all the cases
+ * @args: The va_list containing the arguments
+ * @format: The format specifier
  *
- * Return: nothing.
+ * Return: The total number of character printed
  */
-void switchCases(char s)
+int handle_format_specifier(const char *format, va_list args)
 {
 	int count = 0;
 
-	if (s == 'c')
+	switch (*format)
 	{
 		case 'c':
 		{
-			_putchar(s);
-			count++;
+			_putchar(va_arg(args, int));
+			break;
 		}
-	}
-	else if (s == 'd' || 'i')
-	{
-		case 'd':
+		case 's':
 		{
-			count += print_integer(s);
+			count += (print_string(args));
+			break;
 		}
+		case 'd':
 		case 'i':
 		{
-			count += print_strings(s);
+			count += (print_integer(va_arg(args, int)));
+			break;
 		}
-	}
-	else
-	{
 		case '%':
 		{
 			_putchar('%');
 			count++;
+			break;
+		}
+		default:
+		{
+			_putchar('%');
+			_putchar(*format);
+			count += 2;
+			break;
 		}
 	}
+	return (count);
 }

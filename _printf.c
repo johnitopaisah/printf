@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdarg.h>
-#include <stddef.h>
 
 /**
  * _printf - output according to a the format specified
@@ -20,20 +19,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			switch (format[i])
-			{
-				case 's':
-					count += print_strings(va_arg(strings_args, char *));
-					break;
-				switchCases(format[i]):
-					break;
-				default:
-				{
-					_putchar('%');
-					_putchar(format[i]);
-					count += 2;
-				}
-			}
+			count += handle_format_specifier(&format[i], string_args);
 		}
 		else
 		{
