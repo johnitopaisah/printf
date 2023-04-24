@@ -11,8 +11,6 @@
 int _printf(const char *format, ...)
 {
 	int i = 0, count = 0;
-	char *s;
-	int numb;
 	va_list string_args;
 
 	va_start(string_args, format);
@@ -31,23 +29,16 @@ int _printf(const char *format, ...)
 					break;
 				}
 				case 'd':
+					count += print_integer(va_arg(string_args, int));
+					break;	
 				case 'i':
 				{
-					numb = va_arg(string_args, int);
-					count += print_integer(numb);
+					count += print_integer(va_arg(string_args, int));
 					break;
 				}
 				case 's':
 				{
-					s = va_arg(string_args, char *);
-					if (s == NULL)
-						s = "(null)";
-					while (*s)
-					{
-						_putchar(*s);
-						s++;
-						count++;
-					}
+					count += print_strings(va_arg(string_args, char *));
 					break;
 				}
 				case '%':
