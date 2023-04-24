@@ -4,13 +4,12 @@
 
 /**
  * print_strings - function that prints a string wint %s conversion specifier
- * @args: The va_list strint to be printed
+ * @str: The pointer to the string to be printed
  *
  * Return: The total number of character printed
  */
-int print_string(va_list args)
+int print_string(char *str)
 {
-	char *str = va_arg(args, char *);
 	int count = 0;
 
 	if (str == NULL)

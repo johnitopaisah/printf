@@ -19,7 +19,31 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			count += handle_format_specifier(&format[i], string_args);
+			switch (format[i])
+			{
+				case 'c':
+				{
+					_putchar(va_arg(string_args, int));
+					count++;
+					break;
+				}
+				case 'd':
+				case 'i':
+					count += print_integer(va_arg(string_args, int));
+					break;
+				case 's':
+					count += print_strings(va_arg(string_args, char *));
+					break;
+				case '%':
+					_putchar('%');
+					count++;
+					break;
+				default:
+					_putchar('%');
+					_putchar(format[i]);
+					count += 2;
+					break;
+			}
 		}
 		else
 		{
