@@ -22,39 +22,16 @@ int _printf(const char *format, ...)
 			i++;
 			switch (format[i])
 			{
-				case 'c':
-				{
-					_putchar(va_arg(string_args, int));
-					count++;
-					break;
-				}
-				case 'd':
-				{
-					count += print_integer(va_arg(string_args, int));
-					break;
-				}
-				case 'i':
-				{
-					count += print_integer(va_arg(string_args, int));
-					break;
-				}
 				case 's':
-				{
-					count += print_strings(va_arg(string_args, char *));
+					count += print_strings(va_arg(strings_args, char *));
 					break;
-				}
-				case '%':
-				{
-					_putchar('%');
-					count++;
+				switchCases(format[i]):
 					break;
-				}
 				default:
 				{
 					_putchar('%');
 					_putchar(format[i]);
 					count += 2;
-					break;
 				}
 			}
 		}
