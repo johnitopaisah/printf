@@ -1,9 +1,8 @@
 #include "main.h"
 #include <stddef.h>
 
-
 /**
- * print_strings - function that prints a string wint %s conversion specifier
+ * print_string - function that prints a string wint %s conversion specifier
  * @str: The pointer to the string to be printed
  *
  * Return: The total number of character printed
