@@ -34,10 +34,14 @@ int _printf(const char *format, ...)
 				case 's':
 					count += print_string(va_arg(string_args, char *));
 					break;
+				case '%':
+					_putchar('%');
+					count++;
+					break;
 				default:
 					_putchar('%');
 					_putchar(format[i]);
-					count++;
+					count += 2;
 					break;
 			}
 		}
