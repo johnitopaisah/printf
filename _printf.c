@@ -23,8 +23,7 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 				{
-					_putchar(va_arg(string_args, int));
-					count++;
+					count += print_char(va_arg(string_args, int));
 					break;
 				}
 				case 'd':
