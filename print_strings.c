@@ -13,7 +13,7 @@ int print_string(char *str)
 
 	if (str == NULL)
 	{
-		str = "(nil)";
+		return (0);
 	}
 	while (*str)
 	{
