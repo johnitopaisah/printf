@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <limits.h> /* For INT_MIN and INT_MAX constant */
 
 /**
  * print_integer - prints an integer.
@@ -15,6 +15,14 @@ int print_integer(int num)
 	int digit; /* For extracting the leftmost digit */
 	int temp; /* For tempurally storage */
 
+	if (num == INT_MIN)
+	{
+		count += _putchar('-');
+		count++;
+		num = -(num / 10);
+		divisor *= 10;
+		num_digits++;
+	}
 	if (num < 0)
 	{
 		_putchar('-'); /* Write a negative sign to the stdout */
