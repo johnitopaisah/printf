@@ -6,7 +6,7 @@
  *
  * Return: The number of characters printed
  */
-int print_binary(unsigned int n)
+int print_binary(int n)
 {
 	int i, count = 0;
 	int bit;
