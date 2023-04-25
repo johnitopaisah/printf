@@ -35,6 +35,9 @@ int _printf(const char *format, ...)
 				case 's':
 					count += print_string(va_arg(string_args, char *));
 					break;
+				case 'b':
+					count += print_binary(va_arg(string_args, int));
+					break;
 				case '%':
 					_putchar('%');
 					count++;
