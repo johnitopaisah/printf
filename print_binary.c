@@ -6,21 +6,18 @@
  *
  * Return: The number of characters printed
  */
-int print_binary(int n)
+int print_binary(unsigned int n)
 {
-	int i, count = 0;
-	int bit;
-	int leading_zero = 1;
+	int count = 0;
+	unsigned int mask = 1 << (sizeof(unsigned int) * 8 - 1);
 
-	for (i = sizeof(n) * 8; i >= 0; i--)
+	while (mask > 0)
 	{
-		bit = (n >> i) & 1;
-
-		if (bit == 0 && leading_zero)
-			continue;
-		leading_zero = 0;
-		count += _putchar(bit + '0');
+		if (n & mask)
+			count += _putchar('1');
+		else
+			count += _putchar('0');
+		mask >>= 1;
 	}
-
 	return (count);
 }
