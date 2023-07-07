@@ -1,38 +1,23 @@
 #include "main.h"
 
 /**
- * print_binary - Function that handle the binary specifier
- * @num: The integer to be printed
+ * print_binary - print an unsiged integer in binary format
+ * @n: The unsigned integer to print
  *
  * Return: The number of characters printed
  */
-int print_binary(unsigned int num)
+int print_binary(unsigned int n)
 {
-	int i = 0;
 	int count = 0;
-	int binary_digits[32];
+	unsigned int mask = 1 << (sizeof(unsigned int) * 8 - 1);
 
-	if (num == 0) /* if the number is zero, just print 0 */
+	while (mask > 0)
 	{
-		_putchar('0');
-		count++;
-	}
-	else
-	{
-		/* Converting the number to its binary */
-		while (num > 0)
-		{
-			binary_digits[i] = num %= 2; /*storing the remainder in the binary_digit */
-			num /= 2; /* The will update the number by dividing by 2 */
-			i++;
-		}
-
-		/* Now print the digits in reverse order */
-		while (i > 0)
-		{
-			_putchar(binary_digits[--i] + '0');
-			count++;
-		}
+		if (n & mask)
+			count += _putchar('1');
+		else
+			count += _putchar('0');
+		mask >>= 1;
 	}
 	return (count);
 }

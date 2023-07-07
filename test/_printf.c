@@ -9,7 +9,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, count = 0;
+	int i = 0, n, count = 0;
 	va_list string_args;
 
 	va_start(string_args, format);
@@ -36,7 +36,9 @@ int _printf(const char *format, ...)
 					count += print_string(va_arg(string_args, char *));
 					break;
 				case 'b':
-					count += print_binary(va_arg(string_args, int));
+					n = va_arg(string_args, int);
+					print_binary(n);
+					count++;
 					break;
 				case '%':
 					count += _putchar('%');
